@@ -7,7 +7,7 @@ using HTN;
 /// <summary>
 /// HTNによって行動のプランニングをする
 /// </summary>
-public class Planner : MonoBehaviour
+public class HTNPlanner : MonoBehaviour
 {
     [SerializeField]
     WorldStateHolder m_WorldStateHolder;
