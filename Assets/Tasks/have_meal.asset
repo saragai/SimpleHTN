@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41c62ec16fa8a445bd8af66a113d1d6, type: 3}
   m_Name: have_meal
   m_EditorClassIdentifier: 
-  m_TaskName: Have Meal
   m_Methods:
   - m_Conditions:
     - m_Type: 2
@@ -24,4 +23,8 @@ MonoBehaviour:
       m_Value: 1
     m_SubTasks:
     - {fileID: 11400000, guid: aa275d8bb8afea249b7cb5843b1b0c81, type: 2}
+    - {fileID: 11400000}
+  - m_Conditions: []
+    m_SubTasks:
+    - {fileID: 11400000, guid: d2fd13b10fa6ca1488e72082e995a059, type: 2}
     - {fileID: 11400000}

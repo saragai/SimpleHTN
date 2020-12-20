@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_WorldState:
-    m_States: 000100
+    m_States: 000000
 --- !u!1 &563356434
 GameObject:
   m_ObjectHideFlags: 0
