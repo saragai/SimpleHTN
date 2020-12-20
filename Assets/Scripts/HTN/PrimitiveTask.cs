@@ -18,10 +18,10 @@ namespace HTN
             {
                 if (!condition.Match(state))
                     return false;
-
-                foreach(var effect in m_Effects)
-                    effect.ApplyTo(state);
             }
+
+            foreach(var effect in m_Effects)
+                effect.ApplyTo(state);
 
             plan.Enqueue(m_Operator);
 
