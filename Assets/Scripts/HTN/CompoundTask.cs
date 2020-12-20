@@ -22,7 +22,7 @@ namespace HTN
         {
             // 無限再帰を防ぐ
             m_RecurrentCount++;
-            //Debug.Log($"{m_RecurrentCount}: {TaskName}");
+            //Debug.Log($"{m_RecurrentCount}: {this.name}");
             if (m_RecurrentCount > 5)
             {
                 return false;
@@ -46,9 +46,14 @@ namespace HTN
                             return false;
                         }
                     }
+
+                    // サブタスクが全て完了したので成功
+                    return true;
                 }
             }
-            return true;
+
+            // 条件を満たすメソッドがなかったので失敗
+            return false;
         }
     }
 }
