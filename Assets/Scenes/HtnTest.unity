@@ -260,7 +260,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1536752349}
+  - component: {fileID: 1536752351}
   - component: {fileID: 1536752348}
+  - component: {fileID: 1536752350}
   m_Layer: 0
   m_Name: Cpu
   m_TagString: Untagged
@@ -296,3 +298,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1536752350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536752347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb24c9ac62afbb468d8ab18ca16ea78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Planner: {fileID: 1536752348}
+  m_Operatable: {fileID: 1536752351}
+  m_Task: {fileID: 11400000, guid: 560055b12008fa54eaab5eb20182fa52, type: 2}
+--- !u!114 &1536752351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536752347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a537a97e7f26c01479e80cd7467dfd0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

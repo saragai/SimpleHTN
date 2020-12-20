@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1513e08fcf0c90042ad5bcb2a8a54077, type: 3}
-  m_Name: work
+  m_Script: {fileID: 11500000, guid: baf78ea2311a2fa4e957634433e75c15, type: 3}
+  m_Name: eat_meal_operator
   m_EditorClassIdentifier: 
-  m_Preconditions: []
-  m_Operator: {fileID: 11400000, guid: 024ecccb782d17e40a7b2073e5e772b9, type: 2}
-  m_Effects:
-  - m_Type: 1
-    m_Value: 1
+  m_OperatorName: Eat meal
