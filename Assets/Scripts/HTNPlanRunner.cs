@@ -38,9 +38,4 @@ public class HTNPlanRunner : MonoBehaviour
     {
         yield return StartCoroutine(@operator.Execute(m_Operatable));
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 }

@@ -9,7 +9,7 @@ namespace HTN
     public class PrimitiveTask : Task
     {
         [SerializeField] List<Condition> m_Preconditions;
-        [SerializeField] Operator m_Operator;
+        [SerializeField] Operator.Operator m_Operator;
         [SerializeField] List<Effect> m_Effects;
 
         public override bool TryPlanTask(WorldState state, ref Queue<IOperator> plan)
