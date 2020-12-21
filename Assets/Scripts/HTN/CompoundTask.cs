@@ -9,9 +9,6 @@ namespace HTN
     {
         [SerializeField] List<Method> m_Methods;
 
-        [System.NonSerialized]
-        static int m_RecurrentCount = 0;
-
         /// <summary>
         /// 状態を指定して実行するOperator
         /// </summary>
@@ -20,14 +17,6 @@ namespace HTN
         /// <returns></returns>
         public override bool TryPlanTask(WorldState state, ref Queue<IOperator> plan)
         {
-            // 無限再帰を防ぐ
-            m_RecurrentCount++;
-            //Debug.Log($"{m_RecurrentCount}: {this.name}");
-            if (m_RecurrentCount > 5)
-            {
-                return false;
-            }
-
             foreach (var method in m_Methods)
             {
                 // 実行するタスクを見つける
