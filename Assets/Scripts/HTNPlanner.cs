@@ -38,19 +38,20 @@ public class HTNPlanner : MonoBehaviour
         return m_PlanList;
     }
 
+    [SerializeField] UnityEngine.UI.Text m_Text;
     /// <summary>
     /// プランニングを出力
     /// </summary>
     private void Log()
     {
-        string str = "";
+        string str = "プラン： ";
 
         foreach (var @operator in m_PlanList)
         {
-            str += @operator.OperatorName + " -> ";
+            str += @operator.OperatorName + " → ";
         }
         str += "END";
 
-        Debug.Log(str);
+        m_Text.text = str;
     }
 }

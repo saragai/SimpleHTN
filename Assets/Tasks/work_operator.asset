@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf4a54186cdad94a8fa8b9dffaee7a1, type: 3}
   m_Name: work_operator
   m_EditorClassIdentifier: 
-  m_OperatorName: Work
+  m_OperatorName: "\u4ED5\u4E8B"
   m_Place: 0
   m_Velocity: 1

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf4a54186cdad94a8fa8b9dffaee7a1, type: 3}
   m_Name: buy_meal_operator
   m_EditorClassIdentifier: 
-  m_OperatorName: BuyMeal
+  m_OperatorName: "\u8CFC\u5165"
   m_Place: 1
   m_Velocity: 1
