@@ -33,12 +33,24 @@ public class HTNPlanner : MonoBehaviour
 
         rootTask.TryPlanTask(tmpState, ref m_PlanList);
 
-        foreach (var @operator in m_PlanList)
-        {
-            Debug.Log(@operator.OperatorName);
-        }
-        Debug.Log(tmpState);
+        Log();
 
         return m_PlanList;
+    }
+
+    /// <summary>
+    /// プランニングを出力
+    /// </summary>
+    private void Log()
+    {
+        string str = "";
+
+        foreach (var @operator in m_PlanList)
+        {
+            str += @operator.OperatorName + " -> ";
+        }
+        str += "END";
+
+        Debug.Log(str);
     }
 }
