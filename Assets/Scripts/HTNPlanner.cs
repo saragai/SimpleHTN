@@ -28,6 +28,7 @@ public class HTNPlanner : MonoBehaviour
     /// <param name="rootTask">‘åŒ³‚Ìƒ^ƒXƒN</param>
     public Queue<IOperator> Plan(ITask rootTask)
     {
+        m_PlanList.Clear();
         var tmpState = m_WorldStateHolder.WorldState.CreateCopy();
 
         rootTask.TryPlanTask(tmpState, ref m_PlanList);
