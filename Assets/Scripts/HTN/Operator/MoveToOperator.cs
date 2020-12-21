@@ -19,7 +19,7 @@ namespace HTN.Operator
                 var transform = operatable.Transform;
                 var dir = targetPos - (Vector2)transform.position;
 
-                if(dir.magnitude < 0.3f)
+                if(dir.magnitude < 0.1f)
                 {
                     yield break;
                 }
@@ -27,7 +27,7 @@ namespace HTN.Operator
                 dir.Normalize();
 
                 // “®‚©‚·
-                transform.position += (Vector3)(dir * Time.deltaTime);
+                transform.position += (Vector3)( m_Velocity * dir * Time.deltaTime);
                 yield return null;
             }
         }
