@@ -14,28 +14,64 @@ public class HTNPlanRunner : MonoBehaviour
 
     [SerializeField] Task m_Task;
 
+    List<IEnumerator> m_RunningCoroutines;
+
     // Start is called before the first frame update
     void Start()
     {
-        SetTask(m_Task);
+        m_RunningCoroutines = new List<IEnumerator>();
+        StartCoroutine(SetTaskRoutine(m_Task));
+    }
+
+    IEnumerator SetTaskRoutine(ITask task)
+    {
+        while (true)
+        {
+            // ˆê•b‚²‚Æ‚ÉƒŠƒvƒ‰ƒ“ƒjƒ“ƒO
+            SetTask(task);
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     public void SetTask(ITask task)
     {
+        StopCoroutine();
+
         var plan = m_Planner.Plan(task);
-        StartCoroutine(Execute(plan));
+        StartPlan(plan);
+    }
+
+    void StartPlan(IEnumerable<IOperator> operators)
+    {
+        var plan = Execute(operators);
+        m_RunningCoroutines.Add(plan);
+
+        StartCoroutine(plan);
+    }
+
+    void StopCoroutine()
+    {
+        foreach(var coroutine in m_RunningCoroutines)
+        {
+            StopCoroutine(coroutine);
+        }
+        m_RunningCoroutines.Clear();
     }
 
     IEnumerator Execute(IEnumerable<IOperator> operators)
     {
         foreach(var @operator in operators)
         {
-            yield return StartCoroutine(Execute(@operator));
+            var action = Execute(@operator);
+            m_RunningCoroutines.Add(action);
+            yield return StartCoroutine(action);
         }
     }
 
     IEnumerator Execute(IOperator @operator)
     {
-        yield return StartCoroutine(@operator.Execute(m_Operatable));
+        var action = @operator.Execute(m_Operatable);
+        m_RunningCoroutines.Add(action);
+        yield return StartCoroutine(action);
     }
 }
