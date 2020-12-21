@@ -411,6 +411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1021038753}
   - component: {fileID: 1021038752}
+  - component: {fileID: 1021038754}
   m_Layer: 0
   m_Name: WorldState
   m_TagString: Untagged
@@ -446,6 +447,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1021038754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021038751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0bdbccd5c1f9134ab98678068e5a487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_WorldStateHolder: {fileID: 1021038752}
+  m_Character: {fileID: 1536752347}
 --- !u!1 &1304026976
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,6 +835,7 @@ GameObject:
   - component: {fileID: 1536752351}
   - component: {fileID: 1536752348}
   - component: {fileID: 1536752350}
+  - component: {fileID: 1536752352}
   m_Layer: 0
   m_Name: Cpu
   m_TagString: Untagged
@@ -882,6 +898,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a537a97e7f26c01479e80cd7467dfd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1536752352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536752347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3302f844be667a429bd0b07fc67ef98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_WorldStateHolder: {fileID: 1021038752}
+  m_HungrySprite: {fileID: 554485005}
+  m_MealSprite: {fileID: 1312572778}
+  m_MoneySprite: {fileID: 245608686}
 --- !u!1 &2014222565
 GameObject:
   m_ObjectHideFlags: 0
