@@ -886,6 +886,7 @@ MonoBehaviour:
   m_Planner: {fileID: 1536752348}
   m_Operatable: {fileID: 1536752351}
   m_Task: {fileID: 11400000, guid: 560055b12008fa54eaab5eb20182fa52, type: 2}
+  m_ReplanningInterval: 1
 --- !u!114 &1536752351
 MonoBehaviour:
   m_ObjectHideFlags: 0

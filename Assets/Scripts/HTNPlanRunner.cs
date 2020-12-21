@@ -14,6 +14,8 @@ public class HTNPlanRunner : MonoBehaviour
 
     [SerializeField] Task m_Task;
 
+    [SerializeField] float m_ReplanningInterval = 1f;
+
     List<IEnumerator> m_RunningCoroutines;
 
     // Start is called before the first frame update
@@ -27,9 +29,9 @@ public class HTNPlanRunner : MonoBehaviour
     {
         while (true)
         {
-            // 一秒ごとにリプランニング
+            // 一定時間ごとにリプランニング
             SetTask(task);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(m_ReplanningInterval);
         }
     }
 
