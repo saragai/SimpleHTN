@@ -15,7 +15,7 @@ namespace HTN
         /// <param name="state"></param>
         /// <param name="plan"></param>
         /// <returns></returns>
-        public override bool TryPlanTask(WorldState state, ref Queue<IOperator> plan)
+        public override bool TryPlanTask(WorldState state, ref Plan plan)
         {
             foreach (var method in m_Methods)
             {
@@ -23,7 +23,7 @@ namespace HTN
                 if (method.Match(state))
                 {
                     // 現在のplanを保存
-                    var currentPlan = new Queue<IOperator>(plan);
+                    var currentPlan = new Plan(plan);
 
                     // サブタスクを行う
                     foreach (var task in method.SubTasks)

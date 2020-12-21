@@ -43,17 +43,17 @@ public class HTNPlanRunner : MonoBehaviour
         StartPlan(plan);
     }
 
-    void StartPlan(IEnumerable<IOperator> operators)
+    void StartPlan(Plan plan)
     {
-        var plan = Execute(operators);
-        m_RunningCoroutines.Add(plan);
+        var coroutine = Execute(plan.Operators);
+        m_RunningCoroutines.Add(coroutine);
 
-        StartCoroutine(plan);
+        StartCoroutine(coroutine);
     }
 
     void StopCoroutine()
     {
-        foreach(var coroutine in m_RunningCoroutines)
+        foreach (var coroutine in m_RunningCoroutines)
         {
             StopCoroutine(coroutine);
         }
@@ -62,7 +62,7 @@ public class HTNPlanRunner : MonoBehaviour
 
     IEnumerator Execute(IEnumerable<IOperator> operators)
     {
-        foreach(var @operator in operators)
+        foreach (var @operator in operators)
         {
             var action = Execute(@operator);
             m_RunningCoroutines.Add(action);

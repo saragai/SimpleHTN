@@ -12,21 +12,21 @@ public class HTNPlanner : MonoBehaviour
     [SerializeField]
     WorldStateHolder m_WorldStateHolder;
 
-    Queue<IOperator> m_PlanList;
+    Plan m_PlanList;
 
     /// <summary>
     /// 初期化
     /// </summary>
     public void Awake()
     {
-        m_PlanList = new Queue<IOperator>();
+        m_PlanList = new Plan();
     }
 
     /// <summary>
     /// プランニングする
     /// </summary>
     /// <param name="rootTask">大元のタスク</param>
-    public Queue<IOperator> Plan(ITask rootTask)
+    public Plan Plan(ITask rootTask)
     {
         m_PlanList.Clear();
         var tmpState = m_WorldStateHolder.WorldState.CreateCopy();
@@ -46,7 +46,7 @@ public class HTNPlanner : MonoBehaviour
     {
         string str = "プラン： ";
 
-        foreach (var @operator in m_PlanList)
+        foreach (var @operator in m_PlanList.Operators)
         {
             str += @operator.OperatorName + " → ";
         }

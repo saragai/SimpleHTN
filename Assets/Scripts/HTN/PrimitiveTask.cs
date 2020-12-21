@@ -12,7 +12,7 @@ namespace HTN
         [SerializeField] Operator.Operator m_Operator;
         [SerializeField] List<Effect> m_Effects;
 
-        public override bool TryPlanTask(WorldState state, ref Queue<IOperator> plan)
+        public override bool TryPlanTask(WorldState state, ref Plan plan)
         {
             foreach (var condition in m_Preconditions)
             {
