@@ -9,7 +9,7 @@ namespace HTN
         bool TryPlanTask(WorldState state, ref Plan plan);
     }
 
-    public abstract class Task: ScriptableObject, ITask
+    public abstract class Task : ScriptableObject, ITask
     {
         public abstract bool TryPlanTask(WorldState state, ref Plan plan);
     }

@@ -48,7 +48,6 @@ namespace HTN
         /// í—Ş‚ğw’è‚µ‚Äó‘Ô‚Ì’l‚ğæ“¾
         /// </summary>
         /// <param name="type">í—Ş</param>
-        /// <returns>’l</returns>
         public bool Get(TYPE type)
         {
             return m_States[(int)type];
@@ -80,7 +79,7 @@ namespace HTN
 
 #if UNITY_EDITOR
         public static string StatesName => nameof(m_States);
-#endif 
+#endif
     }
 }
 

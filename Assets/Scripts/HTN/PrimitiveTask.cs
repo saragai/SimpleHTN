@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace HTN
 {
-    [CreateAssetMenu(fileName ="primitive_task.asset", menuName = "Primitive Task", order = 0)]
+    [CreateAssetMenu(fileName = "primitive_task.asset", menuName = "Primitive Task", order = 0)]
     public class PrimitiveTask : Task
     {
         [SerializeField] List<Condition> m_Preconditions;
@@ -14,13 +14,14 @@ namespace HTN
 
         public override bool TryPlanTask(WorldState state, ref Plan plan)
         {
+            // 
             foreach (var condition in m_Preconditions)
             {
                 if (!condition.Match(state))
                     return false;
             }
 
-            foreach(var effect in m_Effects)
+            foreach (var effect in m_Effects)
                 effect.ApplyTo(state);
 
             plan.Enqueue(m_Operator);

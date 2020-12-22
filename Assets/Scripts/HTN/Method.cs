@@ -14,18 +14,6 @@ namespace HTN
         [SerializeField] List<Task> m_SubTasks;
 
         /// <summary>
-        /// サブタスク列挙
-        /// </summary>
-        public IEnumerable<ITask> SubTasks
-        {
-            get
-            {
-                foreach (var task in m_SubTasks)
-                    yield return task;
-            }
-        }
-
-        /// <summary>
         /// 状態を指定して実行条件を満たすか判断する
         /// </summary>
         /// <param name="state">状態</param>
@@ -36,6 +24,25 @@ namespace HTN
             {
                 if (!condition.Match(state))
                     return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// サブタスクの実行をプランニング
+        /// </summary>
+        /// <param name="state"></param>
+        /// <param name="plan"></param>
+        /// <returns></returns>
+        public bool TryPlanSubTasks(WorldState state, ref Plan plan)
+        {
+            foreach (var task in m_SubTasks)
+            {
+                if (!task.TryPlanTask(state, ref plan))
+                {
+                    return false;
+                }
             }
 
             return true;

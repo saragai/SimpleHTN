@@ -39,10 +39,14 @@ public class HTNPlanRunner : MonoBehaviour
     {
         StopCoroutine();
 
-        var plan = m_Planner.Plan(task);
+        var plan = m_Planner.DoPlan(task);
         StartPlan(plan);
     }
 
+    /// <summary>
+    /// プランの実行を開始
+    /// </summary>
+    /// <param name="plan"></param>
     void StartPlan(Plan plan)
     {
         var coroutine = Execute(plan.Operators);
@@ -51,6 +55,9 @@ public class HTNPlanRunner : MonoBehaviour
         StartCoroutine(coroutine);
     }
 
+    /// <summary>
+    /// 進行中のコルーチンを止める
+    /// </summary>
     void StopCoroutine()
     {
         foreach (var coroutine in m_RunningCoroutines)

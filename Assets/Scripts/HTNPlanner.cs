@@ -12,30 +12,31 @@ public class HTNPlanner : MonoBehaviour
     [SerializeField]
     WorldStateHolder m_WorldStateHolder;
 
-    Plan m_PlanList;
+    Plan m_Plan;
 
     /// <summary>
     /// 初期化
     /// </summary>
     public void Awake()
     {
-        m_PlanList = new Plan();
+        m_Plan = new Plan();
     }
 
     /// <summary>
     /// プランニングする
     /// </summary>
     /// <param name="rootTask">大元のタスク</param>
-    public Plan Plan(ITask rootTask)
+    public Plan DoPlan(ITask rootTask)
     {
-        m_PlanList.Clear();
-        var tmpState = m_WorldStateHolder.WorldState.CreateCopy();
+        m_Plan.Clear();
 
-        rootTask.TryPlanTask(tmpState, ref m_PlanList);
+        // WorldStateのコピーを取って自由に書き換えられるようにする
+        var tmpState = m_WorldStateHolder.WorldState.CreateCopy();
+        rootTask.TryPlanTask(tmpState, ref m_Plan);
 
         Log();
 
-        return m_PlanList;
+        return m_Plan;
     }
 
     [SerializeField] UnityEngine.UI.Text m_Text;
@@ -46,7 +47,7 @@ public class HTNPlanner : MonoBehaviour
     {
         string str = "プラン： ";
 
-        foreach (var @operator in m_PlanList.Operators)
+        foreach (var @operator in m_Plan.Operators)
         {
             str += @operator.OperatorName + " → ";
         }
